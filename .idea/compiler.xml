@@ -7,9 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="web" />
-        <module name="Gost-Login" />
-        <module name="maven" />
+        <module name="webmagic-scripts" />
+        <module name="webmagic-selenium" />
         <module name="mymaven" />
+        <module name="webmagic-core" />
+        <module name="maven" />
+        <module name="webmagic-saxon" />
+        <module name="webmagic-samples" />
+        <module name="SpringBootproject" />
+        <module name="webmagic-extension" />
+        <module name="Gost-Login" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,5 +25,10 @@
       <module name="myapp" target="1.5" />
       <module name="webwang" target="1.5" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringBootproject" options="-parameters" />
+    </option>
   </component>
 </project>
