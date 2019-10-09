@@ -1,1 +1,4 @@
-{"name": "zhangsan","password": 1234}
+{
+  "name": "zhangsan",
+  "password": 1234
+}

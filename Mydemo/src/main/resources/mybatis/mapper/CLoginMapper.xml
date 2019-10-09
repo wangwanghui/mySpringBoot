@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.Dao.CLoginMapper">
-    <select id="FindUserLogin" resultType="CLogin" parameterType="java.lang.String">
-        select * from CLogin where username=#{username}
+<mapper namespace="com.example.demo.Dao.UserDao">
+    <!-- <select id="FindUserLogin" resultType="CLogin" parameterType="java.lang.String">
+         select * from CLogin where username=#{username}
+     </select>-->
+
+    <select id="getUserByUserName" resultType="User">
+        select * from t_user where user_name=#{username}
+    </select>
+
+    <select id="getPermissionsByUserName" resultType="Permission">
+        select p.* from t_user u,t_user_role ur,t_role_permission rp,t_permission p where u.id=ur.user_id and
+        ur.role_id=rp.role_id and rp.permission_id=p.id and u.user_name=#{username}
+    </select>
+
+    <select id="getRolesByUserName" resultType="Role">
+        select r.* from t_user u,t_user_role ur,t_role r where u.id=ur.role_id and ur.role_id=r.id and
+        u.user_name=#{username}
     </select>
 </mapper>

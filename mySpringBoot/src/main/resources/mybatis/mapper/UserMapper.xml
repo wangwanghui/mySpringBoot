@@ -3,6 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.Dao">
     <select id="QueryUser" resultType="User">
-      select  name,age from  student
+        select name,age from student
     </select>
 </mapper>

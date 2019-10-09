@@ -12,8 +12,8 @@ public class UserService {
     @Autowired
     private UserDao userdao;
 
-    public User QueryUser(){
-        User user= userdao.QueryUser();
+    public User QueryUser() {
+        User user = userdao.QueryUser();
         return user;
     }
 }

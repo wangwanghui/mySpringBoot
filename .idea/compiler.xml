@@ -7,28 +7,46 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="web" />
-        <module name="webmagic-scripts" />
         <module name="webmagic-selenium" />
         <module name="mymaven" />
+        <module name="webmagic-samples" />
         <module name="webmagic-core" />
         <module name="maven" />
-        <module name="webmagic-saxon" />
-        <module name="webmagic-samples" />
-        <module name="SpringBootproject" />
         <module name="webmagic-extension" />
+        <module name="webmagic-saxon" />
+        <module name="demoProject" />
+        <module name="SpringBootproject" />
+        <module name="webmagic-scripts" />
         <module name="Gost-Login" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
       <module name="Demomaven" target="1.5" />
       <module name="maven" target="1.5" />
       <module name="myapp" target="1.5" />
+      <module name="myPriject" target="1.8" />
+      <module name="Project1" target="1.8" />
       <module name="webwang" target="1.5" />
+      <module name="xxl-job" target="1.7" />
+      <module name="xxl-job-admin" target="1.7" />
+      <module name="xxl-job-core" target="1.7" />
+      <module name="xxl-job-executor-sample-frameless" target="1.7" />
+      <module name="xxl-job-executor-sample-jboot" target="1.8" />
+      <module name="xxl-job-executor-sample-jfinal" target="1.7" />
+      <module name="xxl-job-executor-sample-nutz" target="1.7" />
+      <module name="xxl-job-executor-sample-spring" target="1.7" />
+      <module name="xxl-job-executor-sample-springboot" target="1.7" />
+      <module name="xxl-job-executor-samples" target="1.7" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Project1" options="-parameters" />
       <module name="SpringBootproject" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="demoProject" options="-parameters" />
+      <module name="myPriject" options="-parameters" />
     </option>
   </component>
 </project>

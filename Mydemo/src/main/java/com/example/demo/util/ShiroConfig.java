@@ -10,14 +10,14 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class ShiroConfig {
     /**
      * 创建ShiroFilterFactoryBean
-     * */
+     */
     @Bean
-    public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager")DefaultWebSecurityManager securityManager){
-        ShiroFilterFactoryBean shiroFilterFactoryBean=new ShiroFilterFactoryBean();
+    public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager securityManager) {
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
         //设置安全管理器
         shiroFilterFactoryBean.setSecurityManager(securityManager);
@@ -30,44 +30,47 @@ public class ShiroConfig {
          *      perms：该资源必须得到资源权限才可以访问
          *      role：该资源必须得到角色权限才可以访问
          */
-        Map<String,String> filterMap=new LinkedHashMap<>();
+        Map<String, String> filterMap = new LinkedHashMap<>();
         /**
          * 添加拦截的资源路径，以及权限
          * 默认拦截后跳转到login.jsp
          * */
-         //1、通过url设置user目录下的网页需要授权访问
-        filterMap.put("/user/add","perms[0]");
-        filterMap.put("/user/update","perms[1]");
-
-       //设置未授权的界面
+        //1、通过url设置user目录下的网页需要授权访问
+        /*filterMap.put("/user/add", "perms[0]");
+        filterMap.put("/user/update", "perms[1]");
+*/
+        //设置未授权的界面
         // * 2、方式二 将url前面都添加上user，这样就可以使用下面的方法进行拦截* */
-        filterMap.put("/user/*","authc");
+        filterMap.put("/user/*", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         //修改默认的拦截后跳转的登陆界面
         shiroFilterFactoryBean.setLoginUrl("/tologin");
         shiroFilterFactoryBean.setUnauthorizedUrl("/unauth");
         return shiroFilterFactoryBean;
     }
+
+
     /**
      * 创建DefaultWebSecurityManager
-     * */
+     */
     @Bean(name = "securityManager")
-    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm")UserRealm userRealm){
-        DefaultWebSecurityManager securityManager=new DefaultWebSecurityManager();
+    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm") UserRealm userRealm) {
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //关联realm
         securityManager.setRealm(userRealm);
         return securityManager;
     }
+
     /**
      * 创建Realm
-     * */
+     */
     @Bean(name = "userRealm")
-    public UserRealm getRealm(){
+    public UserRealm getRealm() {
         return new UserRealm();
     }
 
-  @Bean
-    public ShiroDialect getShiroDialect(){
+    @Bean
+    public ShiroDialect getShiroDialect() {
         return new ShiroDialect();
-   }
+    }
 }
